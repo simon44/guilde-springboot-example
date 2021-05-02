@@ -1,6 +1,7 @@
 package eu.nickel.guildespringbootexample.book;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Table(name = "book")
@@ -8,8 +9,8 @@ public class Book {
 
     @Column(name = "id")
     @Id
-    @GeneratedValue
-    private final int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private final Integer id;
 
     @Column(name = "title")
     private final String title;
@@ -19,12 +20,17 @@ public class Book {
         this.title = title;
     }
 
+    public Book(String title) {
+        this.id = null;
+        this.title = title;
+    }
+
     public Book() {
-        this.id = -1;
+        this.id = null;
         this.title = null;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
