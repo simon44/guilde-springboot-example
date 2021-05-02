@@ -1,3 +1,6 @@
+# Custom
+src/main/resources/application-clever.properties
+
 HELP.md
 .gradle
 build/
