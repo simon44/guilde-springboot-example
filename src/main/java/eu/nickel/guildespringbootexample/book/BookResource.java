@@ -37,19 +37,19 @@ public class BookResource {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Book create(@Valid @RequestBody BookPayload bookPayload) {
+    Book create(@Valid @RequestBody BookPayload bookPayload) {
         return bookService.create(bookPayload);
     }
 
     @PutMapping("/{id}")
-    public Book update(@PathVariable int id,
+    Book update(@PathVariable int id,
                        @Valid @RequestBody BookPayload bookPayload) {
         return bookService.update(id, bookPayload);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int id) {
+    void delete(@PathVariable int id) {
         bookService.delete(id);
     }
 }
